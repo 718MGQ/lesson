@@ -56,4 +56,6 @@ func main() {
 	for i := 0; i < 10; i++ {
 		fmt.Println(biz.NewStudentV2("test"+strconv.Itoa(i), 19, biz.GenderFemaleGenderTypeV2))
 	}
+
+	// 随便写点东西
 }
