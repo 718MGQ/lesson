@@ -15,3 +15,9 @@ func IntPtr() {
 
 	fmt.Println(*pa)
 }
+
+func ChangeA(a *int) {
+	if a != nil {
+		*a = 5
+	}
+}

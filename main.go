@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"lesson/biz"
+	"lesson/biz/ptr"
 	"lesson/biz/student"
 	"strconv"
 )
@@ -61,4 +62,8 @@ func main() {
 		fmt.Println(student.NewStudentV2("test"+strconv.Itoa(i), 19, student.GenderFemaleGenderTypeV2))
 	}
 
+	p := 1
+	pp := &p
+	ptr.ChangeA(pp)
+	fmt.Println(p)
 }
