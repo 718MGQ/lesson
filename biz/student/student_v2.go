@@ -1,4 +1,4 @@
-package biz
+package student
 
 import (
 	_ "embed"
@@ -27,25 +27,26 @@ func (s *StudentV2) GetStudentName() string {
 	return s.name
 }
 
-//go:embed conf/student_num.txt
+//go:embed student_num.txt
 var studentNumV2 string
 
-func NewStudentV2(n string, age int, g GenderTypeV2) StudentV2 {
+func NewStudentV2(n string, age int, g GenderTypeV2) *StudentV2 {
 	i, err := strconv.Atoi(studentNumV2)
 	if err != nil {
 		panic(err)
 	}
 	i++
+
 	// 每次生成的学号写回文件，保证了全局自增，进程的退出也不影响
 	defer func() {
 		studentNumV2 = strconv.Itoa(i)
-		err := os.WriteFile("./biz/conf/student_num.txt", []byte(studentNumV2), 0666)
+		err := os.WriteFile("./biz/student/student_num.txt", []byte(studentNumV2), 0666)
 		if err != nil {
 			fmt.Println(err)
 		}
 	}()
 
-	return StudentV2{
+	return &StudentV2{
 		id:     i,
 		name:   n,
 		Age:    age,
