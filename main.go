@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"lesson/biz"
+	"strconv"
 )
 
 const (
@@ -50,4 +51,9 @@ func main() {
 	fmt.Println("student2 name: ", biz.GetStudentName(student2))
 
 	// 狗剩成功改名重新做人，但是钢蛋失败了
+
+	// 连续生成多个student V2测试一下
+	for i := 0; i < 10; i++ {
+		fmt.Println(biz.NewStudentV2("test"+strconv.Itoa(i), 19, biz.GenderFemaleGenderTypeV2))
+	}
 }
